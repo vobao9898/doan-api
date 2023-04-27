@@ -90,7 +90,6 @@ module.exports = {
     },
 
     getNow: (data, callBack) => {
-        console.log(data)
         pool.query(`SELECT k.*, g.*, g.id as id_giay from khuyen_mai as k, chi_tiet_khuyen_mai as c, giay as g WHERE k.id = c.id_khuyen_mai and c.id_giay = g.id and '${data.date_now}' BETWEEN k.ngay_bat_dau and k.ngay_ket_thuc and k.trang_thai = 1`, [], (error, results, fields) => {
             if (error) {
                 callBack(error);
