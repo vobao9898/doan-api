@@ -196,7 +196,7 @@ module.exports = {
   },
   pageSearchByMessenger: (data, callBack) => {
     pool.query(
-        `select * from khac_hhang where facebook_id = ?`, [data.messenger_id],
+        `select * from khach_hang where facebook_id = ?`, [data.messenger_id],
         (error, results, fields) => {
             if (error) {
                 callBack(error);
