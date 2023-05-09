@@ -164,12 +164,12 @@ app.use("/api/chi_tiet_danh_gia", chi_tiet_danh_gia);
 
 app.post("/api/notify", async(req, res) => {
     const data = req.body;
-    clients["nhat"].sendUTF(
-        JSON.stringify({
-            type: "messages",
-            msg: data,
-        })
-    );
+    // clients["nhat"].sendUTF(
+    //     JSON.stringify({
+    //         type: "messages",
+    //         msg: data,
+    //     })
+    // );
 });
 
 const server = http.createServer(app);
