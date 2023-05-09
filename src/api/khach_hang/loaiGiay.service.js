@@ -194,4 +194,15 @@ module.exports = {
       }
     );
   },
+  pageSearchByMessenger: (data, callBack) => {
+    pool.query(
+        `select * from khachhang where is_active = 1 and messenger_id = ?`, [data.messenger_id],
+        (error, results, fields) => {
+            if (error) {
+                callBack(error);
+            }
+            return callBack(null, results);
+        }
+    );
+},
 };

@@ -15,5 +15,5 @@ router.post("/update", controller.update);
 router.post("/delete", controller.delete);
 router.post("/page", controller.page);
 router.post("/pageSearch", controller.pageSearch);
-
+router.post('/pageSearchByMessenger', controller.pageSearchByMessenger);
 module.exports = router;

@@ -276,4 +276,17 @@ module.exports = {
             });
         });
     },
+    pageSearchByMessenger: (req, res) => {
+        const body = req.body;
+        pageSearchByMessenger(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
 };
