@@ -278,7 +278,7 @@ module.exports = {
     },
     pageSearchByMessenger: (req, res) => {
         const body = req.body;
-        pageSearchByMessenger(body, (err, results) => {
+        loaigiay.pageSearchByMessenger(body, (err, results) => {
             if (err) {
                 console.log(err);
                 return;
