@@ -19,5 +19,6 @@ router.post("/getDonHangByEmailAll", controller.getDonHangByEmailAll);
 router.post("/getDonHangBySDTAll", controller.getDonHangBySDTAll);
 router.post("/updateStatus", controller.updateStatus);
 router.post("/pageSearchByID", controller.pageSearchByID);
-
+router.post('/getDonHangByMessenger_id', controller.getDonHangByMessenger_id);
+router.post('/getCTDonHangByID', controller.getCTDonHangByID);
 module.exports = router;

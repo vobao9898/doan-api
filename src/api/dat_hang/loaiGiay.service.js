@@ -250,4 +250,28 @@ module.exports = {
             }
         );
     },
+
+    getDonHangByMessenger_id: (data, callBack) => {
+        pool.query(
+            `SELECT d.* from dat_hang as d, khach_hang as k WHERE d.id_khach_hang = k.id and k.facebook_id = ? ORDER BY d.thoi_gian_dat DESC LIMIT 2`, [data.id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
+
+    getCTDonHangByID: (data, callBack) => {
+        pool.query(
+            `SELECT c.*, m.ten_giay as ten_giay from dat_hang as d, chi_tiet_don_hang as c, giay as m WHERE d.id = c.id_dat_hang and c.id_giay = m.id and d.id = ?`, [data.id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
 };

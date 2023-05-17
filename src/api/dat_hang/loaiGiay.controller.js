@@ -256,4 +256,32 @@ module.exports = {
             });
         });
     },
+
+    getDonHangByMessenger_id: (req, res) => {
+        const body = req.body;
+        loaigiay.getDonHangByMessenger_id(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
+
+    getCTDonHangByID: (req, res) => {
+        const body = req.body;
+        loaigiay.getCTDonHangByID(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
 };
