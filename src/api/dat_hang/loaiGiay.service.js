@@ -274,4 +274,28 @@ module.exports = {
             }
         );
     },
+
+    getHuyDatHangById: (id, callBack) => {
+        pool.query(
+            `SELECT * from dat_hang WHERE (trang_thai = 0 or trang_thai = 1) and id = ?`, [id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results[0]);
+            }
+        );
+    },
+
+    huyDonHang: (data, callBack) => {
+        pool.query(
+            `update dat_hang set date_update=?, trang_thai=4 where id = ?`, [data.date_update, data.id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results[0]);
+            }
+        );
+    },
 };

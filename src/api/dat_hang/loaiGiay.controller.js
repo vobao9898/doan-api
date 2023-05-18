@@ -284,4 +284,40 @@ module.exports = {
             });
         });
     },
+
+    getHuyDatHangById: (req, res) => {
+        const id = req.params.id;
+        loaigiay.getHuyDatHangById(id, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            if (!results) {
+                return res.json({
+                    success: 0,
+                    message: "Record not Found",
+                });
+            }
+
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
+
+
+    huyDonHang: (req, res) => {
+        const body = req.body;
+        loaigiay.huyDonHang(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
 };
