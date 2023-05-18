@@ -265,7 +265,7 @@ module.exports = {
 
     getCTDonHangByID: (data, callBack) => {
         pool.query(
-            `SELECT c.*, m.ten_giay as ten_giay from dat_hang as d, chi_tiet_don_hang as c, giay as m WHERE d.id = c.id_dat_hang and c.id_giay = m.id and d.id = ?`, [data.id],
+            `SELECT c.*, m.ten_giay as ten_giay, m.gia_ban as gia_ban from dat_hang as d, chi_tiet_don_hang as c, giay as m WHERE d.id = c.id_dat_hang and c.id_giay = m.id and d.id = ?`, [data.id],
             (error, results, fields) => {
                 if (error) {
                     callBack(error);
