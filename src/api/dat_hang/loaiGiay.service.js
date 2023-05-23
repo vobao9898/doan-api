@@ -169,7 +169,7 @@ module.exports = {
 
     getGiayByID: (data, callBack) => {
         pool.query(
-            `SELECT c.*,  m.*, ct_ms.hinh_anh as hinh_anh FROM dat_hang as d, chi_tiet_don_hang as c, giay as m, chi_tiet_mau_sac as ct_ms WHERE d.id = c.id_dat_hang and c.id_giay = m.id and ct_ms.id = c.id_chi_tiet_mau_sac and  d.id = ?`, [data.id],
+            `SELECT c.*,  m.*, ct_ms.hinh_anh as hinh_anh, s.ten_size as ten_size FROM size as s, dat_hang as d, chi_tiet_don_hang as c, giay as m, chi_tiet_mau_sac as ct_ms WHERE d.id = c.id_dat_hang and c.id_giay = m.id and ct_ms.id = c.id_chi_tiet_mau_sac and c.id_size = s.id and d.id = ?`, [data.id],
             (error, results, fields) => {
                 if (error) {
                     callBack(error);
