@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 const con = mysql.createPool({
     connectionLimit: 11,
-    host: 'us-cdbr-east-04.cleardb.com',
-    user: 'bf0844fbd86225',
-    password: '71b99177238a174',
-    database: 'heroku_b938c71e4878655',
+    host: 'us-cdbr-east-06.cleardb.net',
+    user: 'b074eba4947c75',
+    password: '04ab7806',
+    database: 'heroku_3e55e5d7ff658ac',
 });
 
 let danhsachLogin = (req, res) => {
