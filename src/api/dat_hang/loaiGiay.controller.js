@@ -233,6 +233,20 @@ module.exports = {
         });
     },
 
+    updateThanhToan: (req, res) => {
+        const body = req.body;
+        loaigiay.updateThanhToan(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json({
+                success: 1,
+                data: results,
+            });
+        });
+    },
+
     delete: (req, res) => {
         const data = req.body;
         loaigiay.delete(data, (err, results) => {
