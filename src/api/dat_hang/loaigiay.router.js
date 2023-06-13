@@ -18,6 +18,7 @@ router.post("/getDonHangBySDT", controller.getDonHangBySDT);
 router.post("/getDonHangByEmailAll", controller.getDonHangByEmailAll);
 router.post("/getDonHangBySDTAll", controller.getDonHangBySDTAll);
 router.post("/updateStatus", controller.updateStatus);
+router.post("/updateThanhToan", controller.updateThanhToan);
 router.post("/huyDonHang", controller.huyDonHang);
 router.post("/pageSearchByID", controller.pageSearchByID);
 router.post('/getDonHangByMessenger_id', controller.getDonHangByMessenger_id);

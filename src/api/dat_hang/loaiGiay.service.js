@@ -3,7 +3,7 @@ const pool = require("../../config/database");
 module.exports = {
     create: (data, callBack) => {
         pool.query(
-            `insert into dat_hang(id_khach_hang, trang_thai, thoi_gian_dat, ten_nguoi_nhan, sdt_nguoi_nhan, dia_chi_nguoi_nhan,email, matp, tong_tien, date_create) values (?,?,?,?,?,?,?,?,?,?)`, [
+            `insert into dat_hang(id_khach_hang, trang_thai, thoi_gian_dat, ten_nguoi_nhan, sdt_nguoi_nhan, dia_chi_nguoi_nhan,email, matp, tong_tien, date_create, hinh_thuc_thanh_toan, thanh_toan) values (?,?,?,?,?,?,?,?,?,?,?,?)`, [
                 data.id_khach_hang,
                 data.trang_thai,
                 data.thoi_gian_dat,
@@ -13,7 +13,8 @@ module.exports = {
                 data.email,
                 data.matp,
                 data.tong_tien,
-                data.date_create,
+                data.date_create
+                , data?.hinh_thuc_thanh_toan, data?.thanh_toan
             ],
             (error, results, fields) => {
                 if (error) {
@@ -298,4 +299,17 @@ module.exports = {
             }
         );
     },
+
+    updateThanhToan: (data, callBack) => {
+        pool.query(
+            `update dat_hang set  thanh_toan=? where id = ?`, [data.thanh_toan, data.id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results[0]);
+            }
+        );
+    },
+
 };
